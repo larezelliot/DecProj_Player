@@ -7,5 +7,7 @@ func _init(player_ref: Player):
 	player = player_ref
 
 
-func activate():
-	print_debug('ability used with speed: ', player.SPEED)
+# Virtual method
+func activate() -> void:
+	print_debug('Ability activated')
+	pass

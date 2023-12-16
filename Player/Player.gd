@@ -21,17 +21,17 @@ func _physics_process(delta):
 
 
 func load_abilities() -> void:
-	var run_ability = Ability.new(self)
-	var dash_ability = Ability.new(self)
+	#var run_ability = Ability.new(self)
+	var dash_ability = AbilityDash.new(self)
 	
-	abilities.append(run_ability);
+	#abilities.append(run_ability);
 	abilities.append(dash_ability);
 
 	
 func _manage_input() -> void:
 	# Handle Ability.
-	#if Input.is_action_just_pressed("ui_accept"):
-	#	ability.execute();
+	if Input.is_action_just_pressed("ui_accept"):
+		abilities[0].activate(); 
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
