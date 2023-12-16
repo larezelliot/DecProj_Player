@@ -1,15 +1,32 @@
 extends CharacterBody2D
 
-const SPEED: float = 300.0
+class_name Player
+
+@export var SPEED: float = 300.0
+@export var abilities : Array = [];
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
+
+# Called when node and children has entered the scene tree 
+func _ready():
+	load_abilities()
+
+# Called each physics frame with delta (time) as parameter
 func _physics_process(delta):
 	_manage_input()	
 	_manage_animation()
 	move_and_slide()
+
+
+func load_abilities() -> void:
+	var run_ability = Ability.new(self)
+	var dash_ability = Ability.new(self)
 	
+	abilities.append(run_ability);
+	abilities.append(dash_ability);
+
 	
 func _manage_input() -> void:
 	# Handle Ability.
