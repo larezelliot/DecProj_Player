@@ -13,6 +13,7 @@ class_name Player
 func _ready():
 	load_abilities()
 
+
 # Called each physics frame with delta (time) as parameter
 func _physics_process(delta):
 	_manage_input()	
@@ -30,7 +31,7 @@ func load_abilities() -> void:
 	
 func _manage_input() -> void:
 	# Handle Ability.
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("Ability_1"):
 		abilities[0].activate(); 
 
 	# Get the input direction and handle the movement/deceleration.
