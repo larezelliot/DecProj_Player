@@ -2,13 +2,26 @@ extends Ability
 
 class_name AbilityDash
 
-@export var EXTRA_SPEED: float = 1000
+var EXTRA_SPEED: float = 1000
+var DURATION_SECONDS: float = 0.1;
+
+
+# Constructor
+func _init(player: Player):
+	name = "AbilityDash"
+	var cooldown: float = 5
+	super(player, cooldown)
+
 
 
 # Override method
-func activate() -> void:
-	print_debug('Dash activated')
+func activate() -> bool:
+	if !is_cooldown_ready: return false;
 	
-	player.SPEED = player.SPEED + EXTRA_SPEED
-	await player.get_tree().create_timer(0.1).timeout
-	player.SPEED = player.SPEED - EXTRA_SPEED
+	is_cooldown_ready = false
+	
+	PLAYER.speed = PLAYER.speed + EXTRA_SPEED
+	await PLAYER.get_tree().create_timer(DURATION_SECONDS).timeout
+	PLAYER.speed = PLAYER.speed - EXTRA_SPEED
+	
+	return true
