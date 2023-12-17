@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1aoxdlal1fu6"
-path="res://.godot/imported/BlueArrow.bmp-f924878949d1b3d5de1bf6f8deefb06d.ctex"
+path="res://.godot/imported/BlueArrow.bmp-f7d5b9b051e65af228f063f14386326b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/projectiles/BlueArrow.bmp"
-dest_files=["res://.godot/imported/BlueArrow.bmp-f924878949d1b3d5de1bf6f8deefb06d.ctex"]
+source_file="res://Player/Projectiles/Arrow/ArrowSprites/BlueArrow.bmp"
+dest_files=["res://.godot/imported/BlueArrow.bmp-f7d5b9b051e65af228f063f14386326b.ctex"]
 
 [params]
 

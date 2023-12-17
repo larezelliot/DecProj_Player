@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2au87q58d8e5"]
+
+[ext_resource type="Script" path="res://Player/Projectiles/Projectile.gd" id="1_uog2c"]
+
+[node name="Projectile" type="Area2D"]
+script = ExtResource("1_uog2c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

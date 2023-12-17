@@ -2,60 +2,70 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var speed: float = 300.0
-@export var abilities : Array = [];
-@export var weapons : Array = [];
+var speed = 300.0
+
+var abilities = [];
+var weapons = [];
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 
-# Called when node and children has entered the scene tree 
 func _ready():
-	load_abilities()
-	load_weapons()
+	_load_abilities()
+	_load_weapons()
 
-# Called each physics frame with delta (time) as parameter
+
 func _physics_process(delta):
 	_manage_input()	
 	_manage_animation()
 	move_and_slide()
 
 
-func load_abilities() -> void:
-	#var run_ability = Ability.new(self)
-	var dash_ability = AbilityDash.new(self)
-	
-	add_child(dash_ability, true)
-	
-	#abilities.append(run_ability);
-	abilities.append(dash_ability);
+func _load_abilities() -> void:
+	for i in range(4):
+		var dash_ability = AbilityDash.new(self)
+		add_child(dash_ability, true)
+		abilities.append(dash_ability);
 
 
-func load_weapons() -> void:
-	var tenis_gun = TenisGun.new(self)
-	
-	add_child(tenis_gun, true)
-	
-	weapons.append(tenis_gun);
+func _load_weapons() -> void:
+	for i in range(4):
+		var bow = Bow.new(self)
+		add_child(bow, true)
+		weapons.append(bow);
 
 
 func _manage_input() -> void:
-	# Handle Ability.
-	if Input.is_action_just_pressed("Ability_1"):
-		abilities[0].activate();
-		
-	# Handle Weapons.
-	if Input.is_action_just_pressed("ui_accept"):
-		weapons[0].use(); 
+	_manage_input_abilities()
+	_manage_input_weapons()
+	_manage_input_movement()
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+
+func _manage_input_abilities() -> void:
+	if Input.is_action_just_pressed("player_ability_1"):
+		abilities[0].use();
+	if Input.is_action_just_pressed("player_ability_2"):
+		abilities[1].use();
+	if Input.is_action_just_pressed("player_ability_3"):
+		abilities[2].use();
+	if Input.is_action_just_pressed("player_ability_4"):
+		abilities[3].use();
+
+
+func _manage_input_weapons() -> void:
+	if Input.is_action_just_pressed("player_weapon_1"):
+		weapons[0].use();
+	if Input.is_action_just_pressed("player_weapon_2"):
+		weapons[1].use();
+
+
+func _manage_input_movement() -> void:
 	var horizontal_direction = Input.get_axis("ui_left", "ui_right")
 	var vertical_direction = Input.get_axis("ui_up", "ui_down")
 	velocity = Vector2(horizontal_direction, vertical_direction).normalized() * speed;
-	
-	
+
+
 func _manage_animation() -> void:
 	# Manage Animation Player
 	if velocity.length() == 0:

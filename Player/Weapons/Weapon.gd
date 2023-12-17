@@ -1,28 +1,25 @@
-extends Node
+extends Node2D
 
 class_name Weapon
 
 var PLAYER : Player # Reference to the player that owns weapon
-var RECHARGE_SECONDS: float = 0	# Time to launch next ability
+var RECHARGE_SECONDS: float = 0	
 
 var seconds_in_recharge: float = 0
 var is_recharge_ready: bool = true
 
 
-# Constructor
 func _init(player: Player, cooldown: float):
-	name = "WeaponAbstract"
 	PLAYER = player
 	RECHARGE_SECONDS = cooldown
+	name = "WeaponAbstract"
 
 
-# Update	
 func _process(delta):
-	process_recharge(delta)
+	_process_recharge(delta)
 
 
-# Updates recharge
-func process_recharge(delta):
+func _process_recharge(delta):
 	if is_recharge_ready:
 		return
 		
@@ -32,7 +29,5 @@ func process_recharge(delta):
 		seconds_in_recharge = 0.0
 
 
-# Virtual method
-# Try to use the weapon. Returns true if it was used, false if it failed
 func use() -> bool:
 	return false

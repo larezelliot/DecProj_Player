@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://weu4t21us622"]
+
+[ext_resource type="PackedScene" uid="uid://d2au87q58d8e5" path="res://Player/Projectiles/Projectile.tscn" id="1_be20i"]
+[ext_resource type="Texture2D" uid="uid://1aoxdlal1fu6" path="res://Player/Projectiles/Arrow/ArrowSprites/BlueArrow.bmp" id="2_lm5gm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t6q1q"]
+radius = 4.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a7s2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lm5gm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Arrow" instance=ExtResource("1_be20i")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_t6q1q")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_a7s2n")
