@@ -16,6 +16,6 @@ func use() -> bool:
 	if !is_recharge_ready: return false;
 	
 	is_recharge_ready = false
-	var x = preload("res://Player/Weapons/Bullets/Bullet.tscn").instantiate()
-	add_child(x)
+	print_debug('Tenis Gun used')
+	
 	return true
