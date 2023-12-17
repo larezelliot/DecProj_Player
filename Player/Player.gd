@@ -30,10 +30,13 @@ func _load_abilities() -> void:
 
 
 func _load_weapons() -> void:
-	for i in range(4):
-		var bow = Bow.new(self)
-		add_child(bow, true)
-		weapons.append(bow);
+	var bow = Bow.new(self)
+	add_child(bow, true)
+	weapons.append(bow);
+	
+	var sword_scene = preload("res://Player/Weapons/Sword/Sword.tscn")
+	var sword_node = sword_scene.instantiate()
+	add_child(sword_node, true)
 
 
 func _manage_input() -> void:
