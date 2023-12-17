@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1h8anyf5byrk"]
+
+[ext_resource type="Script" path="res://Player/Weapons/Bow/Bow.gd" id="1_n55rj"]
+[ext_resource type="Texture2D" uid="uid://ctewtkbwqv6ux" path="res://sprites/opossum/opossum-1.png" id="2_mdgvg"]
+[ext_resource type="Texture2D" uid="uid://day3evqg6a5g" path="res://sprites/opossum/opossum-2.png" id="3_trmsa"]
+[ext_resource type="Texture2D" uid="uid://dsclrrsq5car1" path="res://sprites/opossum/opossum-3.png" id="4_2u4sf"]
+[ext_resource type="Texture2D" uid="uid://bkchibot7mfnp" path="res://sprites/opossum/opossum-4.png" id="5_q8sqg"]
+[ext_resource type="Texture2D" uid="uid://cuiabb841pd53" path="res://sprites/opossum/opossum-5.png" id="6_fvauy"]
+[ext_resource type="Texture2D" uid="uid://nhqjy2rr4y11" path="res://sprites/opossum/opossum-6.png" id="7_60vf5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gingp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_mdgvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_trmsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2u4sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q8sqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fvauy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_60vf5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bow" type="Node2D"]
+script = ExtResource("1_n55rj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gingp")
