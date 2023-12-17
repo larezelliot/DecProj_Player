@@ -8,16 +8,10 @@ const LAUNCH_SPEED = 512
 const LIFETIME_SECONDS = 2 
 
 
-func _init(player: Player):
+func initialize_bow(player: Player):
 	var recharge_seconds: float = 1
-	super(player, recharge_seconds)
-	
+	initialize_weapon(player, recharge_seconds)
 	name = "Bow"
-
-
-func _is_ready() -> bool:
-	return is_recharge_ready
-
 
 func _initialize_arrow() -> void:
 	
@@ -44,6 +38,3 @@ func use() -> bool:
 	_initialize_arrow()
 	
 	return true
-
-
-

@@ -9,10 +9,10 @@ var seconds_in_recharge: float = 0
 var is_recharge_ready: bool = true
 
 
-func _init(player: Player, cooldown: float):
+func initialize_weapon(player: Player, cooldown: float):
 	PLAYER = player
 	RECHARGE_SECONDS = cooldown
-	name = "WeaponAbstract"
+	name = "WeaponAbstract"	
 
 
 func _process(delta):
@@ -27,6 +27,10 @@ func _process_recharge(delta):
 	if seconds_in_recharge >= RECHARGE_SECONDS:
 		is_recharge_ready = true
 		seconds_in_recharge = 0.0
+
+
+func _is_ready() -> bool:
+	return is_recharge_ready
 
 
 func use() -> bool:
