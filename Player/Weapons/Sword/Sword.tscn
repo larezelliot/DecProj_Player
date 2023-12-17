@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhmxtxmkkbxmk"]
+[gd_scene load_steps=8 format=3 uid="uid://bgd2ssuutsk4m"]
 
 [ext_resource type="Script" path="res://Player/Weapons/Sword/Sword.gd" id="1_maexa"]
 [ext_resource type="Texture2D" uid="uid://cvjhcvxy0ebxb" path="res://sprites/gem/gem-1.png" id="2_42whq"]
