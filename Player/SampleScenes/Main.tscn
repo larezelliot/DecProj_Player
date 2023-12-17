@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv0mw5munmu61"]
+[gd_scene load_steps=4 format=3 uid="uid://cv0mw5munmu61"]
 
 [ext_resource type="PackedScene" uid="uid://cdadnu2j533qe" path="res://Player/Player.tscn" id="1_iwapy"]
 [ext_resource type="PackedScene" uid="uid://d2au87q58d8e5" path="res://Player/Weapons/Projectiles/Projectile.tscn" id="2_b5uv0"]
+[ext_resource type="PackedScene" uid="uid://3pff0pnd12mr" path="res://Player/Weapons/Projectiles/Arrow/Arrow.tscn" id="3_nqxb2"]
 
 [node name="Main" type="Node2D"]
 
@@ -9,4 +10,7 @@
 position = Vector2(317, 160)
 
 [node name="Projectile" parent="." instance=ExtResource("2_b5uv0")]
+visible = false
 position = Vector2(397, 156)
+
+[node name="Arrow" parent="." instance=ExtResource("3_nqxb2")]

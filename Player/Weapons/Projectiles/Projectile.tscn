@@ -1,10 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2au87q58d8e5"]
+[gd_scene load_steps=5 format=3 uid="uid://d2au87q58d8e5"]
 
 [ext_resource type="Script" path="res://Player/Weapons/Projectiles/Projectile.gd" id="1_uog2c"]
-[ext_resource type="Texture2D" uid="uid://cp6t7benscpw8" path="res://icon.svg" id="2_pj5k0"]
+[ext_resource type="Texture2D" uid="uid://crrgtl7fsmjju" path="res://sprites/cherry/cherry-1.png" id="2_2vsih"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a75s1"]
 radius = 66.19
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_51ppk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2vsih")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Projectile" type="Area2D"]
 script = ExtResource("1_uog2c")
@@ -12,7 +23,7 @@ script = ExtResource("1_uog2c")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a75s1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pj5k0")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_51ppk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
