@@ -4,6 +4,7 @@ class_name Player
 
 @export var speed: float = 300.0
 @export var abilities : Array = [];
+@export var weapons : Array = [];
 
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
@@ -12,7 +13,7 @@ class_name Player
 # Called when node and children has entered the scene tree 
 func _ready():
 	load_abilities()
-
+	load_weapons()
 
 # Called each physics frame with delta (time) as parameter
 func _physics_process(delta):
@@ -30,11 +31,23 @@ func load_abilities() -> void:
 	#abilities.append(run_ability);
 	abilities.append(dash_ability);
 
+
+func load_weapons() -> void:
+	var tenis_gun = TenisGun.new(self)
 	
+	add_child(tenis_gun, true)
+	
+	weapons.append(tenis_gun);
+
+
 func _manage_input() -> void:
 	# Handle Ability.
 	if Input.is_action_just_pressed("Ability_1"):
-		abilities[0].activate(); 
+		abilities[0].activate();
+		
+	# Handle Weapons.
+	if Input.is_action_just_pressed("ui_accept"):
+		weapons[0].use(); 
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
